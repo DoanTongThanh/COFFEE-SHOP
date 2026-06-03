@@ -1,0 +1,188 @@
+﻿@{
+    ViewData["Title"] = "Trang Chủ - Coffee Shop";
+    Layout = null; 
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    
+    
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/assets/theme/css/style.css" />
+    <link rel="stylesheet" href="~/assets/mobirise/css/mbr-additional.css" type="text/css" />
+    
+    <style>
+            
+            .coffee-banner {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('/assets/images/bg-coffee.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-align: center;
+            }
+
+                .coffee-banner h1 {
+                    font-size: 4.5rem;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                }
+
+                .coffee-banner p {
+                    font-size: 1.5rem;
+                    margin-bottom: 30px;
+                    font-style: italic;
+                }
+
+            .btn-shop {
+                background-color: #d1a17b;
+                color: white;
+                padding: 12px 35px;
+                font-size: 1.2rem;
+                border-radius: 5px;
+                text-decoration: none;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+                .btn-shop:hover {
+                    background-color: #bfa085;
+                    color: white;
+                }
+
+            .product-card {
+                border: none;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+                border-radius: 0;
+                background-color: #fcfcfc;
+            }
+
+                .product-card img {
+                    height: 250px;
+                    object-fit: cover;
+                    border-radius: 0;
+                }
+
+            .btn-add-cart {
+                background-color: #d1a17b;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                padding: 5px 15px;
+                font-size: 0.9rem;
+            }
+    </style>
+</head>
+<body>
+
+    
+    <header class="coffee-banner">
+        <div class="container">
+            <h1>The daily grind coffee house</h1>
+            <p>Where every cup is a fresh brew of perfection</p>
+            <a href="/Product/Shop" class="btn-shop">Shop now 🛒</a>
+        </div>
+    </header>
+
+    
+    <main class="container my-5 py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold" style="font-size: 2.5rem;">Top Selling</h2>
+            <p class="text-muted" style="font-style: italic;">Make your mornings better with our top-selling product.</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-5">
+            <div class="col">
+                <div class="card h-100 product-card">
+                    <img src="/assets/images/black-diamond.jpg" class="card-img-top" alt="Black Diamond Coffee">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold">Black Diamond Coffee</h5>
+                        <p class="text-muted small">25 $</p>
+                        <div class="d-flex justify-content-start mt-3">
+                            <button class="btn-add-cart">Add to cart 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 product-card">
+                    <img src="/assets/images/roasted-bean.jpg" class="card-img-top" alt="The Roasted Bean">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold">The Roasted Bean</h5>
+                        <p class="text-muted small">35 $</p>
+                        <div class="d-flex justify-content-start mt-3">
+                            <button class="btn-add-cart">Add to cart 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 product-card">
+                    <img src="/assets/images/beanery-espresso.jpg" class="card-img-top" alt="Beanery Espresso">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold">Beanery Espresso</h5>
+                        <p class="text-muted small">45 $</p>
+                        <div class="d-flex justify-content-start mt-3">
+                            <button class="btn-add-cart">Add to cart 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 product-card">
+                    <img src="/assets/images/americano.jpg" class="card-img-top" alt="Americano">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold">Americano</h5>
+                        <p class="text-muted small">25 $</p>
+                        <div class="d-flex justify-content-start mt-3">
+                            <button class="btn-add-cart">Add to cart 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 product-card">
+                    <img src="/assets/images/mocha.jpg" class="card-img-top" alt="Mocha">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold">Mocha</h5>
+                        <p class="text-muted small">35 $</p>
+                        <div class="d-flex justify-content-start mt-3">
+                            <button class="btn-add-cart">Add to cart 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 product-card">
+                    <img src="/assets/images/french-press.jpg" class="card-img-top" alt="French Press">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold">French Press</h5>
+                        <p class="text-muted small">55 $</p>
+                        <div class="d-flex justify-content-start mt-3">
+                            <button class="btn-add-cart">Add to cart 🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <script src="~/assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/theme/js/script.js"></script>
+</body>
+</html>
