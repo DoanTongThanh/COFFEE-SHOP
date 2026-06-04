@@ -8,10 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddDbContext<CoffeeshopDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CoffeeShopDbContextConnection")));
+
 var app = builder.Build();
+
 
 
 if (!app.Environment.IsDevelopment())
@@ -31,6 +34,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseSession();
 
 
 app.Run();

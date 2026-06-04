@@ -1,64 +1,40 @@
-﻿<!DOCTYPE html> 
-<html> 
-<head> 
-<title>Coffee Shop</title> 
-</head> 
-<body> 
-<h1>Shop Coffee</h1> 
-</body> 
-</html>
-<!DOCTYPE html> 
-<html> 
-<head> 
-<title>Coffee Shop</title> 
-</head> 
-<body> 
-<h1>Shop Coffee</h1> 
-@foreach (var item in Model) 
-{ 
-<img width="100" src="@item.ImageUrl" /> 
-<h3>@item.Name</h3> 
-<p>@item.Price.ToString("C")</p> 
-} 
-</body> 
-</html>
-
-@model IEnumerable<COFFEE_SHOP.Models.Product>
+﻿@model IEnumerable<COFFEE_SHOP.Models.Product>
 
 @{
-    ViewData["Title"] = "Cửa Hàng Cà Phê";
+    ViewData["Title"] = "Cửa Hàng";
 }
 
-<div class="container mt-5">
-    <h1 class="text-center mb-4 text-success fw-bold">MENU COFFEE SHOP</h1>
-    <p class="text-center text-muted mb-5">Thưởng thức hương vị cà phê đậm đà từ khắp nơi trên thế giới</p>
-
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        
-        @foreach (var product in Model)
-        {
-            <div class="col">
-                <div class="card h-100 shadow-sm border-0">
-                    
-                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height: 220px; object-fit: cover;">
-                    
-                    <div class="card-body d-flex flex-column">
-                        
-                        <h5 class="card-title fw-bold text-dark">@product.Name</h5>
-                        
-                        
-                        <p class="card-text text-secondary flex-grow-1">@product.Detail</p>
-                        
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            
-                            <span class="text-danger fw-bold fs-5">$@product.Price.ToString("0.00")</span>
-                            
-                            
-                            <button class="btn btn-outline-success btn-sm px-3 rounded-pill">Thêm vào giỏ</button>
-                        </div>
+<section data-version="5.1" class="info3 cid-tsEY2vwh5a mbr-parallax-background" id="info3-b">
+    <div class="mbr-overlay" style="opacity: 0.9; background-image: url('https://images.unsplash.com/photo-1580933073521-dc49ac0d4e6a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80');">
+    </div>
+    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(0, 0, 0);"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card col-12 col-lg-10">
+                <div class="card-wrapper">
+                    <div class="card-box align-center">
+                        <h4 class="card-title mbr-fonts-style align-center mb-4 display-1">
+                            <strong>Shop</strong>
+                        </h4>
                     </div>
                 </div>
             </div>
-        }
+        </div>
     </div>
-</div>
+</section>
+
+<section data-version="5.1" class="content2 cid-tsEZVFGbrL" id="content2-g">
+    <div class="container">
+        <div class="mbr-section-head">
+            <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">
+                The secret to a perfect cup , every time...
+            </h5>
+        </div>
+        <div class="row mt-4">
+            @foreach (var item in Model)
+            {
+                <partial name="_ProductCard" model="item" />
+            }
+        </div>
+    </div>
+</section>
