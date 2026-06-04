@@ -1,0 +1,68 @@
+﻿@model COFFEE_SHOP.Models.ShoppingCartViewModel
+
+<div class="container my-5">
+    <h2 class="mb-4"><i class="bi bi-cart3"></i> Giỏ Hàng Của Bạn</h2>
+
+    @if (Model.ShoppingCart.GetAllShoppingCartItems().Count == 0)
+    {
+        <div class="alert alert-warning py-4 text-center shadow-sm rounded" role="alert">
+            <h4 class="alert-heading fw-bold">Giỏ hàng trống rỗng!</h4>
+            <p class="mb-0 text-muted">Có vẻ như bạn chưa chọn món đồ uống nào. Hãy quay lại trang chủ để chọn món nhé!</p>
+            <a href="/" class="btn btn-primary mt-3 px-4 py-2 rounded-pill fw-bold">Quay lại mua sắm</a>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0 rounded-4 p-3">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th class="text-center">Số lượng</th>
+                                    <th class="text-end">Giá tiền</th>
+                                    <th class="text-end">Tổng cộng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.ShoppingCart.GetAllShoppingCartItems())
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="fw-bold fs-5">@item.Product?.Name</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                                <a asp-controller="ShoppingCart" asp-action="RemoveFromCart" asp-route-id="@item.Product?.Id" class="btn btn-outline-secondary btn-sm rounded-circle px-2">-</a>
+                                                <span class="fw-bold px-2 fs-5">@item.Qty</span>
+                                                <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@item.Product?.Id" class="btn btn-outline-secondary btn-sm rounded-circle px-2">+</a>
+                                            </div>
+                                        </td>
+                                        <td class="text-end text-muted fs-5">@item.Product?.Price.ToString("C")</td>
+                                        <td class="text-end fw-bold text-dark fs-5">@((item.Qty * item.Product!.Price).ToString("C"))</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm border-0 rounded-4 p-4 bg-light">
+                    <h4 class="fw-bold mb-4">Tóm tắt đơn hàng</h4>
+                    <div class="d-flex justify-content-between mb-3 border-bottom pb-2">
+                        <span class="text-muted fs-5">Tổng tiền sản phẩm:</span>
+                        <span class="fw-bold text-danger fs-4">@Model.ShoppingCartTotal.ToString("C")</span>
+                    </div>
+                    <div class="d-grid gap-2 mt-4">
+                        <button class="btn btn-success btn-lg rounded-pill fw-bold py-2 shadow-sm">Tiến hành đặt hàng</button>
+                        <a href="/" class="btn btn-outline-primary rounded-pill fw-bold py-2">Tiếp tục chọn món</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

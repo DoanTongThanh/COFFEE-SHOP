@@ -108,4 +108,8 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="COFFEE_SHOP\" />
+  </ItemGroup>
+
 </Project>
